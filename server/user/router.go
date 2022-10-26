@@ -29,6 +29,9 @@ func (r *router) login(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, &BaseUserResponse{Token: result})
 }
+func (r *router) get(c *gin.Context) {
+	c.JSON(http.StatusOK, &BaseUserResponse{Token: "abc"})
+}
 
 func (r *router) register(c *gin.Context) {
 	var request BaseUserRequest
@@ -51,6 +54,7 @@ func (r *router) register(c *gin.Context) {
 func (r *router) Register(gr *gin.Engine) {
 	user := gr.Group("/user")
 	{
+		user.GET("/", r.get)
 		user.POST("/login", r.login)
 		user.POST("/register", r.register)
 	}
