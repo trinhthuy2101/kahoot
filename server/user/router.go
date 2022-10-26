@@ -54,7 +54,6 @@ func (r *router) register(c *gin.Context) {
 func (r *router) Register(gr *gin.Engine) {
 	user := gr.Group("/user")
 	{
-		user.GET("/", r.get)
 		user.POST("/login", r.login)
 		user.POST("/register", r.register)
 	}
