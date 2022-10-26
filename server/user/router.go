@@ -30,7 +30,7 @@ func (r *router) login(c *gin.Context) {
 	c.JSON(http.StatusOK, &BaseUserResponse{Token: result})
 }
 func (r *router) get(c *gin.Context) {
-	c.JSON(http.StatusOK, &BaseUserResponse{Token: "abc"})
+	c.JSON(http.StatusOK, map[string]string{"result": "Kahoot 19120390"})
 }
 
 func (r *router) register(c *gin.Context) {
