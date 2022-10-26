@@ -58,6 +58,10 @@ func (r *router) Register(gr *gin.Engine) {
 		user.POST("/login", r.login)
 		user.POST("/register", r.register)
 	}
+	home := gr.Group("/")
+	{
+		home.GET("", r.get)
+	}
 	internal := gr.Group("/internal")
 	{
 		internal.POST("/Verify", r.login)
